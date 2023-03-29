@@ -1,0 +1,39 @@
+{
+    "sqltools.connections": [
+        {
+            "mssqlOptions": {
+                "appName": "SQLTools",
+                "useUTC": true,
+                "encrypt": true
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 1433,
+            "driver": "MSSQL",
+            "name": "raw-mssql",
+            "database": "AdventureWorks2019",
+            "username": "sa",
+            "password": "P@ssw0rd"
+        },
+        {
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 5432,
+            "driver": "PostgreSQL",
+            "name": "dev-datawarehouse",
+            "database": "dev",
+            "username": "postgres",
+            "password": "postgres"
+        },
+        {
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 5432,
+            "driver": "PostgreSQL",
+            "name": "raw-datawarehouse",
+            "database": "silash-raw",
+            "username": "postgres",
+            "password": "postgres"
+        }
+    ]
+}

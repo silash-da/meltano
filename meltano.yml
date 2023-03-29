@@ -1,0 +1,40 @@
+version: 1
+default_environment: dev
+project_id: 0d77890a-4400-4b31-ad2e-d2b1b865e20a
+environments:
+- name: dev
+- name: staging
+- name: prod
+plugins:
+  extractors:
+  - name: tap-mssql
+    variant: wintersrd
+    pip_url: tap-mssql
+    config:
+      host: localhost
+      database: AdventureWorks2019
+      user: sa
+    load_schema: AdventureWorks2019
+    select:
+    - Sales-SalesOrderDetail.*
+    - Sales-Customer.*
+    - Sales-SalesOrderHeader.*
+    - Sales-SalesTerritory.*
+    - Sales-Store.*
+    - Production-Product.*
+    - Production-Location.*
+    - Person-Person.*
+    - HumanResources-Employee.*
+    - HumanResources-Department.*
+
+    metadata:
+      '*':
+        replication-method: FULL_TABLE
+  loaders:
+  - name: target-postgres
+    variant: transferwise
+    pip_url: pipelinewise-target-postgres
+    config:
+      host: localhost
+      user: postgres
+      dbname: silash-raw
