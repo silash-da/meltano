@@ -20,8 +20,8 @@
             "server": "localhost",
             "port": 5432,
             "driver": "PostgreSQL",
-            "name": "dev-datawarehouse",
-            "database": "dev",
+            "name": "raw-datawarehouse",
+            "database": "silash-raw",
             "username": "postgres",
             "password": "postgres"
         },
@@ -30,8 +30,8 @@
             "server": "localhost",
             "port": 5432,
             "driver": "PostgreSQL",
-            "name": "raw-datawarehouse",
-            "database": "silash-raw",
+            "name": "dev-datawarehouse",
+            "database": "silash-dw",
             "username": "postgres",
             "password": "postgres"
         }

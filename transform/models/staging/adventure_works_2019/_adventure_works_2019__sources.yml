@@ -1,0 +1,14 @@
+version: 2
+
+sources:
+  - name: adventureworks2019
+    database: silash-dw  
+    schema: adventureworks2019  
+    tables:
+      - name: department
+      - name: customer
+      - name: employee
+      - name: location
+      - name: person
+      - name: product
+      - name: store
