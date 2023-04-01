@@ -12,3 +12,4 @@ sources:
       - name: person
       - name: product
       - name: store
+      - name: salesterritory
