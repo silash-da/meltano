@@ -4,7 +4,8 @@ with adventure_works_product as
         productid as product_id,
         name as product_name,
         productnumber as product_number,
-        sellstartdate as sell_start_date
+        sellstartdate as sell_start_date,
+        --"{{ dbt_utils.pretty_time(format='%Y-%m-%d %H:%M:%S') }}" as test_date
      from {{source('adventureworks2019','product')}}
 )
 

@@ -26,6 +26,7 @@ models:
   my_meltano_project:
     staging:
       +materialized: view
+      # +schema: staging
     intermediate:
       +materialized: view
     marts:

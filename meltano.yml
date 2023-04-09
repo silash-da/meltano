@@ -41,6 +41,12 @@ plugins:
     - Sales-SalesOrderHeader.*
     - Sales-SalesTerritory.*
     - Sales-Store.*
+    - Sales-vIndividualCustomer.*
+    - Sales-vPersonDemographics.*
+    - Sales-vSalesPerson.*
+    - Sales-vStoreWithAddresses.*
+    - Sales-vStoreWithContacts.*
+    - Sales-vStoreWithDemographics.*
     - Production-Product.*
     - Production-Location.*
     - Person-Person.*
@@ -58,6 +64,7 @@ plugins:
       host: localhost
       user: postgres
       dbname: silash-dw
+      primary_key_required: false
   orchestrators:
   - name: airflow
     variant: apache
