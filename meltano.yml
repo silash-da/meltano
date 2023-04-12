@@ -49,7 +49,7 @@ plugins:
     - Sales-vStoreWithDemographics.*
     - Production-Product.*
     - Production-Location.*
-    - Person-Person.*
+    - Person-*.*
     - HumanResources-Employee.*
     - HumanResources-Department.*
 
@@ -77,3 +77,8 @@ plugins:
   - name: dbt-postgres
     variant: dbt-labs
     pip_url: dbt-core~=1.3.0 dbt-postgres~=1.3.0 git+https://github.com/meltano/dbt-ext.git@main
+  - name: elementary
+    variant: elementary
+    pip_url: elementary-data[postgres]==0.5.3 git+https://github.com/potloc/elementary-ext.git
+    config:
+      profiles-dir: ${MELTANO_PROJECT_ROOT}/transform/profiles/postgres/

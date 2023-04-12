@@ -13,3 +13,21 @@ sources:
       - name: product
       - name: store
       - name: salesterritory
+      - name: address
+      - name: addresstype
+      - name: businessentity
+      - name: businessentityaddress
+      - name: businessentitycontact
+      - name: contacttype
+      - name: countryregion
+      - name: vadditionalcontactinfo
+      - name: vindividualcustomer
+      - name: vpersondemographics
+      - name: vsalesperson
+      - name: vstateprovincecountryregion
+      - name: vstorewithaddresses
+      - name: vstorewithcontacts
+      - name: vstorewithdemographics
+
+
+

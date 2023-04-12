@@ -13,4 +13,5 @@ with adventure_works_customer as
     select * from adventure_works_customer
 )
 
+
 select * from final

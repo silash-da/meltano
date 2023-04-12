@@ -23,11 +23,7 @@ clean-targets:
 - dbt_packages
 - logs
 models:
-  my_meltano_project:
-    staging:
-      +materialized: view
-      # +schema: staging
-    intermediate:
-      +materialized: view
-    marts:
-      +materialized: table
+  my_meltano_project: null
+
+  elementary:
+    +schema: elementary
