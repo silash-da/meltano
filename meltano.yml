@@ -65,10 +65,11 @@ plugins:
       user: postgres
       dbname: silash-dw
       primary_key_required: false
+
   orchestrators:
   - name: airflow
     variant: apache
-    pip_url: apache-airflow==2.1.2 --constraint https://raw.githubusercontent.com/apache/airflow/constraints-2.1.2/constraints-${MELTANO__PYTHON_VERSION}.txt
+    pip_url: apache-airflow==2.1.2 --constraint https://raw.githubusercontent.com/apache/airflow/constraints-2.1.2/constraints-3.9.txt
   files:
   - name: files-airflow
     variant: meltano
@@ -79,6 +80,27 @@ plugins:
     pip_url: dbt-core~=1.3.0 dbt-postgres~=1.3.0 git+https://github.com/meltano/dbt-ext.git@main
   - name: elementary
     variant: elementary
-    pip_url: elementary-data[postgres]==0.5.3 git+https://github.com/potloc/elementary-ext.git
+    pip_url: elementary-data==0.5.3 git+https://github.com/potloc/elementary-ext.git
     config:
       profiles-dir: ${MELTANO_PROJECT_ROOT}/transform/profiles/postgres/
+      file-path: ${MELTANO_PROJECT_ROOT}/output/elementary-report.html
+  - name: metabase
+    variant: metabase
+  - name: evidence
+    variant: meltanolabs
+    pip_url: evidence-ext>=0.5
+  - name: superset
+    variant: meltano
+    pip_url: apache-superset==2.0.0 flask==2.0.3 werkzeug==2.0.3 jinja2==3.0.1 wtforms==2.3.3
+      git+https://github.com/meltano/superset-ext.git@main cryptography==3.4.7
+  - name: dagster
+    variant: quantile-development
+    pip_url: dagster-ext
+jobs:
+- name: tap-mssql-to-target-postgres-with-dbt
+  tasks:
+  - tap-mssql target-postgres dbt-postgres:run
+schedules:
+- name: daily-adventureworks2019-load
+  interval: '@daily'
+  job: tap-mssql-to-target-postgres-with-dbt
